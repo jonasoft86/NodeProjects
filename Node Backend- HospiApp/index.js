@@ -28,6 +28,7 @@ var hospital = require('./routes/hospital');
 var medico = require('./routes/medico');
 var busqueda = require('./routes/busqueda');
 var upload = require('./routes/upload');
+var imagenesRoutes = require('./routes/imagenes');
 
 // Conexión a la base de datos
 mongoose.connection.openUri('mongodb://localhost:27017/HospitalDB', (err, res) => {
@@ -46,7 +47,7 @@ app.use('/medico', medico);
 app.use('/busqueda', busqueda);
 app.use('/upload', upload);
 app.use('/', appRoutes);
-
+app.use('/img', imagenesRoutes);
 
 
 // Escuchar peticiones
