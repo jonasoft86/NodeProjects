@@ -47,7 +47,7 @@ app.get('/',(req, res, next) => {
 // ==========================================
 // Actualizar usuarios
 // ==========================================
-app.put('/:id', mdAutenticacion.verificaToken, (req, res) => {
+app.put('/:id', [mdAutenticacion.verificaToken, mdAutenticacion.verificaAdminRole_o_MismoUser], (req, res) => {
 
     var id = req.params.id;
     var body = req.body;
